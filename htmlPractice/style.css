@@ -1,0 +1,19 @@
+img {
+	height: 20em;
+	width: 20em;
+}
+
+body {
+	background: black;
+	color: yellow;
+}
+
+.content {
+	border: 0.25em solid blue;
+	padding: 1em;
+}
+
+.break {
+	border-color: blue;
+	border-bottom-style: dotted;
+}

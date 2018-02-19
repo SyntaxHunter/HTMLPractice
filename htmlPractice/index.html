@@ -1,12 +1,28 @@
+<!DOCTYPE html>
 <html>
-	<!doctype html>
 	<head>
 		<title>Pacman's Webpage'</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script>
+			function changeFood(){
+				if(document.getElementById("FoodButton").innerHTML === "More"){
+					document.getElementById("FavoriteFoodsList").insertAdjacentHTML("beforeend", "<li>Apple</li> <li>Melon</li>");
+					document.getElementById("FoodButton").innerHTML = "Less";
+				} else {
+					var list = document.getElementById("FavoriteFoodsList");
+					var listItems = list.getElementsByTagName("li");
+					var last1 = listItems[listItems.length - 1];
+					var last2 = listItems[listItems.length - 2];
+					list.removeChild(last1);
+					list.removeChild(last2);
+					document.getElementById("FoodButton").innerHTML = "More";
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div>
-			<img src="pacman.png" alt="Pacman" style="float:right;">
+			<img src="pacman.png" alt="Pacman" style="float:right;" onmouseover="this.src='pacman2.png'" onmouseout="this.src='pacman.png'">
 			<div>
 			<h1>Pacman</h1>
 			<p>Pacman is the star of a very popular video game named after him.</br>The game was released on <b>May 22, 1980</b>.</p>
@@ -14,11 +30,13 @@
 
 		<div class="content" style="display:inline-block">
 			<h3>Favorite Foods</h3>
-			<ol>
+			<ol id="FavoriteFoodsList">
 				<li>Cherry</li>
 				<li>Strawberry</li>
 				<li>Orange</li>
 			</ol>
+			
+			<button id="FoodButton" type="button" onClick="changeFood()">More</button>
 			
 			<div class="break"></div>
 		
